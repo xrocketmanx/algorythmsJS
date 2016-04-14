@@ -1,10 +1,11 @@
+"use strict";
 /***
-Recursive search in arrays of arrays by test
+Recursive search in array of arrays by test
 ****element - array or value
 ****test - function to test element
 ****/
 function searchArrayRecursive(element, test) {
-	if (isArray(element)) {
+	if (Array.isArray(element)) {
 		if (element.length === 0) {
 			return [];
 		}
@@ -31,7 +32,7 @@ function getTail(element) {
 
 function prepend(array, element) {
 	var result = array.slice();
-	if (!isArray(element)) {
+	if (!Array.isArray(element)) {
 		result.unshift(element);
 	} else {
 		result.unshift.apply(result, element);
@@ -40,14 +41,14 @@ function prepend(array, element) {
 }
 
 /***
-Half recursive search in arrays of arrays by test
+Half recursive search in array of arrays by test
 ****array
 ****test - function to test element
 ****/
 function searchArray(array, test) {
 	var result = [];
 	for (var i = 0; i < array.length; i++) {
-		if (isArray(array[i])) {
+		if (Array.isArray(array[i])) {
 			result.push.apply(result, searchArray(array[i], test));
 		} else {
 			if (test(array[i])) {
@@ -59,7 +60,7 @@ function searchArray(array, test) {
 }
 
 /***
-Iterative(using stack) search in arrays of arrays by test
+Iterative(using stack) search in array of arrays by test
 ****array
 ****test - function to test element
 ****/
@@ -69,7 +70,7 @@ function searchArrayIterative(array, test) {
 	stack.push(array);
 	while (stack.length > 0) {
 		var temp = stack.pop();
-		if (isArray(temp)) {
+		if (Array.isArray(temp)) {
 			stack.push.apply(stack, temp);
 		} else {
 			if (test(temp)) {
@@ -78,8 +79,4 @@ function searchArrayIterative(array, test) {
 		}
 	}
 	return result.reverse();
-}
-
-function isArray(value) {
-	return value.constructor.name.indexOf("Array") >= 0;
 }
