@@ -49,12 +49,7 @@ function getTail(array) {
  */
 function prepend(array, element) {
 	var result = array.slice();
-	if (!Array.isArray(element)) {
-		result.unshift(element);
-	} else {
-		result.unshift.apply(result, element);
-	}
-	return result;
+	return result.reverse().concat(element).reverse();
 }
 
 /**
