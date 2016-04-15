@@ -1,2 +1,2 @@
-# JS-practise
-JavaScript exercises
+# Algorythms
+JavaScript algorythms
