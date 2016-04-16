@@ -8,12 +8,20 @@ describe("String reversion:", function() {
 		randomString: generateRandomString(10000)
 	};
 
+	describe("reverseString", function() {
+		reverseTest(reverseString, testData);
+	});
+
 	describe("reverseStringSimple", function() {
 		reverseTest(reverseStringSimple, testData);
 	});
 
-	describe("reverseString", function() {
-		reverseTest(reverseString, testData);
+	describe("reverseStringCycle", function() {
+		reverseTest(reverseStringCycle, testData);
+	});
+
+	describe("reverseStringRecursive", function() {
+		reverseTest(reverseStringRecursive, testData);
 	});
 
 	function reverseTest(reverseMethod, testData) {
@@ -31,12 +39,6 @@ describe("String reversion:", function() {
 
 		it("should return empty string if empty string passed", function() {
 			assert.equal(reverseMethod(""), "");
-		});
-
-		it("should throw wrongArgument exception if non string passed", function() {
-			assert.throws(function() {
-				reverseMethod(5);
-			}, /wrong argument type/);
 		});
 	}
 });

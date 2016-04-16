@@ -17,6 +17,7 @@ describe("Search in array of arrays: ", function() {
 	function testSearch(searchFunction) {
 		var testArray = [1, [2, 3, 5], 6, [[[7]]], [10, [11], 4], 9];
 		var searchedNumbers = [5, 7, 11, 9];
+		var bigArray = generateRandomMultidimensionalArray(200, 10);
 
 		it("should search in " + testArray + " for " + searchedNumbers, function() {
 			assert.deepEqual(searchFunction(testArray, function(element) {
@@ -27,6 +28,13 @@ describe("Search in array of arrays: ", function() {
 				}
 				return false;
 			}), searchedNumbers);
+		});
+
+		it("should search in big array(10000) faster then 100ms", function() {
+			this.timeout(100);
+			searchFunction(bigArray, function(element) {
+				return element <= 1;
+			});
 		});
 
 		var testNumber = searchedNumbers[0];
