@@ -1,8 +1,8 @@
 "use strict";
 /**
  * Searches in Array of Arrays by test fully recursive
- * @param  {Object} array - array or vlue
- * @param  {Function} test - function for testing element
+ * @param  {Object} array array or vlue
+ * @param  {Function} test function for testing element
  * @return {Array} resulting array of matches
  */
 function searchArrayRecursive(array, test) {
@@ -43,8 +43,8 @@ function getTail(array) {
 
 /**
  * Prepends element or elements to array without changing array
- * @param  {Object} array - array or value to prepend
- * @param  {Object} element - array or value to prepend
+ * @param  {Object} array array or value to prepend
+ * @param  {Object} element array or value to prepend
  * @return {Array} resulting array
  */
 function prepend(array, element) {
@@ -54,8 +54,8 @@ function prepend(array, element) {
 
 /**
  * Searches in Array of Arrays by test half recursive
- * @param  {Object} array - array or value	
- * @param  {Function} test - function for testing element
+ * @param  {Object} array array or value	
+ * @param  {Function} test function for testing element
  * @return {Array} resulting array of matches
  */
 function searchArray(array, test) {
@@ -79,8 +79,8 @@ function searchArray(array, test) {
 
 /**
  * Searches in Array of Arrays by test iterative
- * @param  {Object} array - array or value	
- * @param  {Function} test - function for testing element
+ * @param  {Object} array array or value	
+ * @param  {Function} test function for testing element
  * @return {Array} resulting array of matches
  */
 function searchArrayIterative(array, test) {

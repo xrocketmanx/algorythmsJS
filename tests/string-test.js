@@ -1,10 +1,10 @@
+"use strict";
 var assert = chai.assert;
 
 describe("String reversion:", function() {
 	var testData = {
 		testString: "abracadabra",
 		resultString: "arbadacarba",
-		randomStringLength: 10000,
 		randomString: generateRandomString(10000)
 	};
 
@@ -30,7 +30,7 @@ describe("String reversion:", function() {
 			assert.equal(reverseMethod(testData.testString), testData.resultString);
 		});
 
-		it("should reverse big string(length = " + testData.randomStringLength + ") faster then 100ms", 
+		it("should reverse big string(length = " + testData.randomString.length + ") faster then 100ms", 
 			function() {
 				this.timeout(100);
 				reverseMethod(testData.randomString);

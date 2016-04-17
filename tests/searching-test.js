@@ -2,42 +2,45 @@
 var assert = chai.assert;
 
 describe("Search in array of arrays: ", function() {
-	describe("searchArrayRecursive", function() {
-		testSearch(searchArrayRecursive);
+	var testData = {
+		testArray: [1, [2, 3, 5], 6, [[[7]]], [10, [11], 4], 9],
+		searchedNumbers: [5, 7, 11, 9],
+		bigArray: generateRandomMultidimensionalArray(200, 10)
+	};
+
+	describe("searchArrayRecursive(slow)", function() {
+		testSearch(searchArrayRecursive, testData);
 	});
 
 	describe("searchArray(half recursive)", function() {
-		testSearch(searchArray);
+		testSearch(searchArray, testData);
 	});
 
 	describe("searchArrayIterative", function() {
-		testSearch(searchArrayIterative);
+		testSearch(searchArrayIterative, testData);
 	});
 
-	function testSearch(searchFunction) {
-		var testArray = [1, [2, 3, 5], 6, [[[7]]], [10, [11], 4], 9];
-		var searchedNumbers = [5, 7, 11, 9];
-		var bigArray = generateRandomMultidimensionalArray(200, 10);
+	function testSearch(searchFunction, testData) {
 
-		it("should search in " + testArray + " for " + searchedNumbers, function() {
-			assert.deepEqual(searchFunction(testArray, function(element) {
-				for (var i = 0; i < searchedNumbers.length; i++) {
-					if (element === searchedNumbers[i]) {
+		it("should search in " + testData.testArray + " for " + testData.searchedNumbers, function() {
+			assert.deepEqual(searchFunction(testData.testArray, function(element) {
+				for (var i = 0; i < testData.searchedNumbers.length; i++) {
+					if (element === testData.searchedNumbers[i]) {
 						return true;
 					}
 				}
 				return false;
-			}), searchedNumbers);
+			}), testData.searchedNumbers);
 		});
 
-		it("should search in big array(10000) faster then 100ms", function() {
+		it("should search in big array(200) faster then 100ms", function() {
 			this.timeout(100);
-			searchFunction(bigArray, function(element) {
+			searchFunction(testData.bigArray, function(element) {
 				return element <= 1;
 			});
 		});
 
-		var testNumber = searchedNumbers[0];
+		var testNumber = testData.searchedNumbers[0];
 		it('should search in ' + testNumber + ' for ' + testNumber, function() {
 			assert.equal(searchFunction(testNumber, function(element) {
 				return element === testNumber;
