@@ -26,12 +26,30 @@ function generateRandomSymbol() {
  * @param  {Number} length number of elements
  * @return {Array} generated Array
  */
-function generateArray(length) {
+function generateRandomArray(length) {
 	var array = [];
 	for (var i = 0; i < length; i++) {
 		array.push(generateRandomInteger(UNICODE_MAX));
 	}
 	return array;
+}
+
+/**
+ * generates random search tree
+ * @param  {Number} length number of elements
+ * @return {SearchTree}
+ */
+function generateRandomSearchTree(length) {
+	var array = generateRandomArray(length);
+	var tree = new SearchTree(function(a, b) {
+		if (a > b) return 1;
+		else if (a < b) return -1;
+		return 0;
+	});
+	for (var i = 0; i < length; i++) {
+		tree.add(array[i]);
+	}
+	return tree;
 }
 
 /**

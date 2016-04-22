@@ -16,9 +16,16 @@
 	<script src="searching-test.js"></script>
 	<script src="../string.js"></script>
 	<script src="string-test.js"></script>
+	<script src="../search-tree.js"></script>
+	<script src="search-tree-test.js"></script>
+	<script src="../trie-tree.js"></script>
+	<script src="../word-search.js"></script>
+	<script src="word-search-test.js"></script>
 	<div id="mocha"></div>
 	<script>
 		mocha.run();
+		var tree = new TrieTree();
+		tree.add('hello');
 	</script>
 </body>
 </html>
