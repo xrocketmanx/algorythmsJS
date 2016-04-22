@@ -2,7 +2,7 @@
 /**
  * @class
  * Realization of trie tree based on
- * hash table.
+ * associative array (JS Object)
  */
 function TrieTree() {
 	function Node(word) {

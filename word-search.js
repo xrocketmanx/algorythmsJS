@@ -8,6 +8,7 @@
  * @return {Array}            array of matches
  */
 function getMatchesByLength(tree, letters, length) {
+    if (letters.length < length) return [];
     letters.sort();
     return getMatchesByLengthRecursive(tree.getTreeRoot(), letters, length);
 }
