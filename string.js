@@ -1,3 +1,4 @@
+"use strict";
 /**
  * reverses string with half length switch cycle
  * @param  {String} str 

@@ -1,10 +1,9 @@
+"use strict";
 var assert = chai.assert;
 
 describe('SearchTree', function() {
 	var tree = new SearchTree(function(a, b) {
-		if (a > b) return 1;
-		else if (a < b) return -1;
-		return 0;
+		return a - b;
 	});
 	var itemsArray = generateRandomArray(10);
 

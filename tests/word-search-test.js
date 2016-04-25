@@ -1,3 +1,4 @@
+"use strict";
 var assert = chai.assert;
 
 describe('Word search by possible leters and length in trie tree dictionary' +
