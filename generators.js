@@ -6,7 +6,7 @@ var UNICODE_MAX = 65435;
  * @return {String} generated string 
  */
 function generateRandomString(length) {
-	var strArray = new Array(length);
+	var strArray = [];
 	for (var i = 0; i < length; i++) {
 		strArray.push(generateRandomSymbol());
 	}
