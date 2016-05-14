@@ -105,3 +105,35 @@ function merge(left, right){
 
     return result.concat(left.slice(i)).concat(right.slice(j));
 }
+
+function quickSort(array) {
+	array = array.slice();
+	quick(array, 0, array.length - 1);
+	return array;
+}
+
+function quick(array, left, right) {
+	if (right - left < 2) return;
+	var i = partition(array, left, right);
+	quick(array, left, i);
+	quick(array, i + 1, right);
+}
+
+function partition(array, left, right) {
+	var middle = array[right];
+	var i = left, j = right - 1;
+	while(i < j) {
+		while(array[i] < middle) i++;
+		while(array[j] > middle) j--;
+		if (i < j) {
+			var temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+			i++;
+			j--;
+		} 
+	}
+	array[right] = array[i];
+	array[i] = middle;
+	return j;
+}

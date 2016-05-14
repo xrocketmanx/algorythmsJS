@@ -23,6 +23,10 @@ describe("Sorting algorythms", function() {
 			assert.deepEqual(method(unSortedArray), sortedArray);
 		});
 
+		it("should not modify input array " + unSortedArray, function() {
+			assert.notDeepEqual(unSortedArray, sortedArray);
+		});
+
 		it("should not change sorted array " + sortedArray, function() {
 			assert.deepEqual(method(sortedArray), sortedArray);
 		});
@@ -62,5 +66,9 @@ describe("Sorting algorythms", function() {
 
 	describe("Merge sort", function() {
 		test(mergeSort);
+	});
+
+	describe("Quick sort", function() {
+		test(quickSort);
 	});
 });
