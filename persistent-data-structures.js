@@ -196,18 +196,3 @@ class PersistentObject extends PersistentTree {
         return this.keys;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
